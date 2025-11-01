@@ -1,19 +1,25 @@
 @echo off
-echo Setting up MP3 Player Project...
+echo.
+echo    MP3 Player Setup - Yanyan
+echo.
 
-REM Check if Python is installed
+REM Check Python
 python --version >nul 2>&1
 if %errorlevel% neq 0 (
-    echo Python is not installed or not in PATH. Please install Python 3.6+ from https://www.python.org/
+    echo [ERROR] Python not found! Install from https://python.org
     pause
     exit /b 1
 )
 
-REM No requirements to install, as all are standard libs.
-
-REM Run the update script to rename MP3s and update Arduino code
-echo Running update_script.py...
+echo [INFO] Renaming MP3 files with 0001_, 0002_...
 python update_script.py
 
-echo Setup complete! Copy the MP3/ folder to your SD card, then upload D:\mp3_w_oled\mp3_w_oled.ino to your Arduino.
+echo.
+echo [SUCCESS] Setup complete!
+echo.
+echo Next steps:
+echo   1. Copy the entire MP3/ folder to your SD card (FAT32)
+echo   2. Open mp3_player.ino in Arduino IDE
+echo   3. Upload to your Arduino
+echo.
 pause
