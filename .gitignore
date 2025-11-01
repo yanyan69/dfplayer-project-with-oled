@@ -1,0 +1,11 @@
+# Ignore large MP3 files (uncomment if you don't want to commit them)
+MP3/
+System Volume Information/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Arduino temp files
+*.elf
+*.hex
