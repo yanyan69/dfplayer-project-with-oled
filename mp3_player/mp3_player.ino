@@ -48,12 +48,14 @@ void playNext() {
     buildShuffle();
   }
 
-  uint8_t file = playlist[currentIdx];
+  int folderNumber = 1;  // choose folder number (e.g. 1 for /01/)
+  uint8_t trackNumber = playlist[currentIdx];
+
   char buf[32];
-  sprintf(buf, "PLAY: %04d/%04d", file, totalTracks);
+  sprintf(buf, "PLAY FOLDER %02d: %04d/%04d", folderNumber, trackNumber, totalTracks);
   log(buf);
 
-  mp3.play(file);
+  mp3.playFolder(folderNumber, trackNumber);
   delay(500);
   isPlaying = true;
   currentIdx++;
